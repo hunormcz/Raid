@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import heroes.*;
 
 class PrintTeam {
-	public void print (Hero[] heroes, int pnumbers){
+	public static void print (Hero[] heroes, int pnumbers){
 	
 		//Team composition
 		int isnew=0;
@@ -60,7 +60,7 @@ class PrintTeam {
 	
 	
 	//Print hero stats for hero name
-		public void printherostats(Hero[] heroes, int pnumbers) throws IOException{
+		public static void printherostats(Hero[] heroes, int pnumbers) throws IOException{
 			String input = null; 
 			String name=null;
 			
@@ -70,6 +70,7 @@ class PrintTeam {
 			String classname=null;
 			String classtype=null;
 			//read input
+			System.out.println();
 			System.out.println("Enter player name to display hero stats: 'x' to cancel");
 		
 			//validate input
@@ -103,7 +104,7 @@ class PrintTeam {
 		
 		
 	//Print skill dmg by name.skill
-	public void printskilldmg(Hero[] heroes, int pnumbers) throws IOException{
+	public static void printskilldmg(Hero[] heroes, int pnumbers) throws IOException{
 		String input = null; 
 		String name=null;
 		String skill=null;
@@ -113,12 +114,14 @@ class PrintTeam {
 		String classname=null;
 		String classtype=null;
 		//read input
+		System.out.println();
 		System.out.println("Enter Name and Skill for details: (name.skill), 'x' to cancel");
 	
 		//validate input
 		input = stdin.readLine();
 		if (input.equals("x")){valid=true;
 		System.out.println("Canceled by user!");}
+		
 		while (!valid)
 		{
 				//split string

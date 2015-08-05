@@ -3,7 +3,7 @@
 public class Units {
 
 	//define unit types (# of tank/healer/dps)
-	public String[] unitComposition (int players){
+	public static String[] unitComposition (int players){
 		String[] playerComposition;
 		playerComposition = new String[players+1];
 		

@@ -8,26 +8,39 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+import javax.swing.JOptionPane;
+
 
 
 
 
 public class ReadNames {
 
+	//read pnumbers
 	public static int playerN() throws IOException
 	{
 		
 		String input = null; 
 		  BufferedReader stdin = new BufferedReader ( new InputStreamReader( System.in ) );
 		  int pnumbers=1;
-		  while (pnumbers%5 != 0){
-		  System.out.println("How many players per team?");
-		  input = stdin.readLine();
-		  pnumbers =  Integer.valueOf(input);
-		  if (pnumbers%5 != 0) 
-		  {
-		  System.out.println("Invalid player number! Player number must be one of the following values: 5, 10, 15, 20, 25, 30 ");	
-		  }
+		  boolean valid = false;
+		  
+		  //validate number input
+		  while ((pnumbers%5!=0)&&(!valid)){
+			  System.out.println("How many players per team?");
+			  input = stdin.readLine();
+			  
+			  try {
+				  pnumbers = Integer.parseInt(input);
+				  if (pnumbers%5 == 0) valid = true;
+			    } catch (NumberFormatException e) {
+			        //error
+			       
+			    }
+			  if ((pnumbers%5 != 0)||(!valid)) 
+			  {
+			  System.out.println("Invalid player number! Player number must be one of the following values: 5, 10, 15, 20, 25, 30 ");	
+			  }
 		  
 		  
 		  }
@@ -122,14 +135,7 @@ public class ReadNames {
 					System.out.println("Invalid input! Please enter number and name in the following format: palyernumber.playername ");	
 					}
 							  
-				
-			
-		
-			
-			
-		}
-		
-		 	
+		}	 	
 		return(newnames);
 		
 	}
