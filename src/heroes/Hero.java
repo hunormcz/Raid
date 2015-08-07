@@ -1,5 +1,7 @@
 package heroes;
 
+// hero superclass, contains hero stats
+
 public class Hero {
 	
 	public String name;
@@ -12,18 +14,21 @@ public class Hero {
 	
 }
 
+/*
+ * Subclasses
+ 	* 1. Warrior
+	* tank
+	* 2. Marauder
+	* tank
+	* 3. Mage
+	* healer
+	* 4. Warlock
+	* healer
+	* 5. Assasin
+	* dps
+	* 6. Ranger
+	* dps
+ */
 
-//1. Warrior
-//tank
-//2. Marauder
-//tank
-//3. Mage
-//healer
-//4. Warlock
-//healer
-//5. Assasin
-//dps
-//6. Ranger
-//dps
 
 

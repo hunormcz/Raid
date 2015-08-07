@@ -16,23 +16,26 @@ import javax.swing.JOptionPane;
 
 public class ReadNames {
 
-	//read pnumbers
+	/*
+	 * read number of players from console
+	 */
 	public static int playerN() throws IOException
 	{
 		
-		String input = null; 
+		  String input = null; 
 		  BufferedReader stdin = new BufferedReader ( new InputStreamReader( System.in ) );
-		  int pnumbers=1;
+		  int pnumbers=31;
 		  boolean valid = false;
 		  
-		  //validate number input
-		  while ((pnumbers%5!=0)&&(!valid)){
+		  //validate player input to be integer and divisible by 5 and smaller than 31
+		  
+		  while ((pnumbers%5!=0)||(!valid)){
 			  System.out.println("How many players per team?");
 			  input = stdin.readLine();
 			  
 			  try {
 				  pnumbers = Integer.parseInt(input);
-				  if (pnumbers%5 == 0) valid = true;
+				  if ((pnumbers%5 == 0)&&(pnumbers<=30)) valid = true;
 			    } catch (NumberFormatException e) {
 			        //error
 			       
@@ -48,7 +51,9 @@ public class ReadNames {
 		  
 	}
 	
-	
+	/*
+	 * Read names from txt file
+	 */
 	public static String[] readFile (int players) throws FileNotFoundException
 	{
 		String[] names;
@@ -56,7 +61,7 @@ public class ReadNames {
 		names = new String[31];
 		namesRandom = new String[players];
 		
-		// Read all names from file
+		// Read all names from file to names
 		String filePath = new File("").getAbsolutePath();
 		Scanner inFile1 = new Scanner(new File(filePath+"/src/names.txt"));
 		int i=0;
@@ -68,14 +73,7 @@ public class ReadNames {
 			    }
 			    inFile1.close();
 			    
-			    
-		//for (i=0; i<30; i++){
-		//System.out.println(i+": "+names[i]);
-		//}
-		
-		
-		
-		//Randomize names to array
+		// Randomize names to array for number of players
 		Random rnd = new Random();
 		int r = rnd.nextInt(players-1);
 		
@@ -91,7 +89,9 @@ public class ReadNames {
 		
 		return(namesRandom);	    
 	}
-
+	
+	
+	// NOT USED - assign custom name for a player
 	public static String[] customname(String[] players) throws IOException
 	{
 		String [] newnames; 

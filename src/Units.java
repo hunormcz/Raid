@@ -7,7 +7,8 @@ public class Units {
 		String[] playerComposition;
 		playerComposition = new String[players+1];
 		
-		//tanks
+		// # of tanks required
+		
 		int tanks;
 		if (players <= 5) 
 				{tanks = 1;
@@ -17,20 +18,21 @@ public class Units {
 			tanks = 2;
 		}
 		
+		//Populate string with Tanks
 		for (int i=0; i < tanks; i++)
 		{
 			playerComposition[i]="Tank";
 		}
-		//healers
+		
+		//# of healers required
 		int healers = players / 5;
-		for (int i=healers; i < tanks+healers; i++)
+		for (int i=tanks; i < tanks+healers; i++)
 		{
 			playerComposition[i]="Healer";
 		}
 		
 		
-		//dps
-		int dps = players - (tanks+healers);
+		//# of dps required
 		for (int i=healers+tanks; i < players; i++)
 		{
 			playerComposition[i]="DPS";

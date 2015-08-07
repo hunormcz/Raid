@@ -2,6 +2,8 @@ import java.util.regex.Pattern;
 
 import heroes.*;
 
+//function that exctracts the skillname or skilldamage from a hero type objects subclass 
+
 public class Extract{
 	
 	public static String skill1name(Hero hero){
@@ -9,6 +11,7 @@ public class Extract{
 		String classname=null;
 		String classtype=null;
 		
+		//spit classname.classtype to 2 strings
 		String[] parts = hero.getClass().getName().split(Pattern.quote("."));
 		classname = parts[0];
 		try {
@@ -16,6 +19,8 @@ public class Extract{
 		} catch (Exception e) {
 			// TODO: handle exception
 		} 
+		
+		//return skillname for subclass
 		switch (classtype){
 		case "Assasin":
 			skillname=Assasin.skill1;
